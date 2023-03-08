@@ -1,0 +1,19 @@
+spring:
+  rabbitmq:
+    host: 192.168.125.128 #主机ip
+    port: 5672 #端口
+    username: guest
+    password: guest
+    virtual-host: /
+      #开启ack
+
+    listener:
+      simple:
+        acknowledge-mode: manual #采取手动应答
+        # 拒绝消息是否重回队列
+        default-requeue-rejected: true
+        prefetch: 2 #perfetch = 1,表示消费端每次从mq拉去一条消息来消费，直到手动确认消费完毕后，才会继续拉去下一条消息。
+        #concurrency: 1 # 指定最小的消费者数量
+        #max-concurrency: 1 #指定最大的消费者数量
+        retry:
+          enabled: true # 是否支持重试

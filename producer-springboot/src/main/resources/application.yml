@@ -1,0 +1,15 @@
+# 配置RabbitMQ的基本信息  ip 端口 username  password..
+spring:
+  rabbitmq:
+    host: 192.168.125.128 # ip
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+#    publisher-confirms: true
+#    publisher-confirm-ty
+    publisher-confirm-type: correlated
+    #确认消息已发送到交换机(Exchange) 可以把publisher-confirms: true 替换为  publisher-confirm-type: correlated
+
+    #确认消息已发送到队列(Queue)
+    publisher-returns: true
